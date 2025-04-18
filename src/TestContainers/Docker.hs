@@ -655,6 +655,7 @@ run request = do
 
     -- Last but not least, execute the WaitUntilReady checks
     waitUntilReady container readiness
+    liftIO $ threadDelay 10000000
     Prelude.error "Place 4"
     pure container
 
