@@ -585,7 +585,6 @@ run request = do
             , followLogs
             , workDirectory
             } = request
-    Prelude.error "Place 1"
     config@Config{configTracer, configCreateReaper} <-
         ask
 
@@ -594,6 +593,7 @@ run request = do
             then do
                 pure []
             else reaperLabels <$> configCreateReaper
+    Prelude.error "Place 2"
 
     image@Image{tag} <- runToImage toImage
 
