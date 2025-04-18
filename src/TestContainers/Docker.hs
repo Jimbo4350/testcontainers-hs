@@ -593,7 +593,6 @@ run request = do
             then do
                 pure []
             else reaperLabels <$> configCreateReaper
-    Prelude.error "Place 2"
 
     image@Image{tag} <- runToImage toImage
 
@@ -627,6 +626,7 @@ run request = do
                     ++ [command | Just command <- [cmd]]
 
     stdout <- docker configTracer dockerRun `catch` (\(e :: SomeException) -> Prelude.error $ "docker: " <> show e)
+    Prelude.error "Place 3"
 
     let id :: ContainerId
         !id =
