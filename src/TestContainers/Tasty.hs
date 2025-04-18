@@ -146,7 +146,5 @@ withContainers startContainers tests =
                 release (_, internalState) =
                     stateCleanup ReleaseNormal internalState
              in withResource acquire release $ \mk ->
-                    Prelude.error
-                        "Place 6"
-                        tests
+                    tests
                         (fmap fst mk)
