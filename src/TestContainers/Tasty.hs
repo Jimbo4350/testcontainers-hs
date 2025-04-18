@@ -130,7 +130,6 @@ withContainers startContainers tests =
                 -- let's us access the internal state..
                 acquire :: IO (a, InternalState)
                 acquire = runC $ do
-                    Prelude.error "Place 5"
                     result <- startContainers
                     releaseMap <- liftResourceT getInternalState
 
@@ -147,4 +146,7 @@ withContainers startContainers tests =
                 release (_, internalState) =
                     stateCleanup ReleaseNormal internalState
              in withResource acquire release $ \mk ->
-                    tests (fmap fst mk)
+                    Prelude.error
+                        "Place 6"
+                        tests
+                        (fmap fst mk)
