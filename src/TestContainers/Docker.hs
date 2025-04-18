@@ -626,7 +626,6 @@ run request = do
                     ++ [command | Just command <- [cmd]]
 
     stdout <- docker configTracer dockerRun `catch` (\(e :: SomeException) -> Prelude.error $ "docker: " <> show e)
-    Prelude.error "Place 3"
 
     let id :: ContainerId
         !id =
@@ -656,7 +655,7 @@ run request = do
 
     -- Last but not least, execute the WaitUntilReady checks
     waitUntilReady container readiness
-
+    Prelude.error "Place 4"
     pure container
 
 {- | Sets up a Ryuk 'Reaper'.
